@@ -13,4 +13,16 @@ main{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+.tasks{
+  margin-top: 0%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer{
+  position:absolute;
+  bottom: 20px;
+  right: 30px;
 }

@@ -1,6 +1,6 @@
+// Header.jsx
 import './Header.css';
-import moon from '../../assets/icons8-moon-and-stars-24.png';
-
+import { moon } from '../../assets'; // Use named import with curly braces
 
 const Header = () => {
   return (
@@ -18,11 +18,9 @@ const Header = () => {
           <option value="OLDEST">OLDEST</option>
         </select>
 
-
         <button className="theme">
           <img src={moon} alt="Theme Icon" />
         </button>
-        
       </div>
     </main>
   );
