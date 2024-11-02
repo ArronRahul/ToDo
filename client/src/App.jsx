@@ -7,7 +7,15 @@ const App = () => {
     <main>
       <Header />
       <Task />
-      
+      <Task />
+      <Task />
+      <Task />
+      <Task />
+
+      <div className='footer'>
+        
+      </div>
+
     </main>
   )
 }
