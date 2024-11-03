@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes for validation
-import { CreateTask, GetTasks } from '../../Service/service';
 import './Modal.css';
+import { CreateTask } from '../../Service/service';
 
 const Modal = ({ toggleModal }) => {
   const [taskData, setTaskData] = useState('');
