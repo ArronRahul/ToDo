@@ -10,24 +10,35 @@ import { GetTasks } from './Service/service.js';
 const App = () => {
 
   const [showModal, setShowModal] = useState(false);
-  const [tasks,setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortOrder, setSortOrder] = useState('ALL');
 
-  useEffect(() =>{
+  useEffect(() => {
     const fetchTasks = async () => {
-      try{
+      try {
         const fetchedTasks = await GetTasks();
         setTasks(fetchedTasks);
-      }catch(error){
+      } catch (error) {
         console.error(error);
       }
     };
     fetchTasks();
-  },[showModal])
+  }, [showModal])
 
 
   const toggleModal = () => {
     setShowModal(!showModal);
   }
+
+  const handleSearch = (term) => {
+    setSearchTerm(term.toLowerCase());
+  };
+
+  const handleSortChange = (order) => {
+    setSortOrder(order);
+  };
+
 
   return (
     <main>
