@@ -45,7 +45,7 @@ h1{
     gap: 10px;
 }
 
-button{
+.main button{
     width: 30px;
     height: 30px;
     border-radius: 5px;

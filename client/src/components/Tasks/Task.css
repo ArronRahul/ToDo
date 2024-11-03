@@ -8,8 +8,14 @@
 input{
     width: 20px;
     height: 20px;
+    border: 1px solid aqua;
 }
 
 p{
     flex: 3;
+}
+hr{
+    width: 100%;
+    border: 1px solid aqua;
+    margin: 10px 0;
 }
