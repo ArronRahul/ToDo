@@ -1,22 +1,15 @@
-const API_BASE_URL = '/api';
+import axios from 'axios';
+const API_BASE_URL = 'http://localhost:5000/api/tasks';
 
 export const CreateTask = async (taskname) => {
-    console.log(taskname)
-    try{
-        const response= await fetch(`${API_BASE_URL}/task`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({taskname})
-        })
-        if(!response.ok){
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-    }
-    catch(error){
+    console.log(taskname);
+    try {
+        const response = await axios.post(`${API_BASE_URL}`, {
+            taskname: taskname,
+        });
+        return response.data; 
+    } catch (error) {
         console.error(error);
-        throw(error);
+        throw error; 
     }
 }
