@@ -19,15 +19,22 @@ const App = () => {
       {showModal && <Modal toggleModal={toggleModal} />}
       <Header />
       <div className='tasks'>
-      <Task />
-      <Task />
-      <Task />
-      <Task />
-      <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
       </div>
 
       <div className='footer'>
-        <img src={add} alt="Add Icon" onClick={toggleModal}/>
+        <img
+          src={add}
+          alt="Add Icon"
+          role="button"
+          tabIndex="0"
+          onClick={toggleModal}
+          onKeyDown={(e) => e.key === 'Enter' && toggleModal()}
+        />
       </div>
     </main>
   );

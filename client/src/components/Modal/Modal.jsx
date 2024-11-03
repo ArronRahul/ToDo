@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { CreateTask } from '../../Service/service'; // Check consistency here
+import PropTypes from 'prop-types'; // Import PropTypes for validation
+import { CreateTask } from '../../Service/service';
 import './Modal.css';
 
 const Modal = ({ toggleModal }) => {
@@ -12,9 +13,9 @@ const Modal = ({ toggleModal }) => {
     }
 
     try {
-      await CreateTask(taskData); // Call the API function
-      setTaskData(''); // Clear the input field
-      toggleModal(); // Close modal
+      await CreateTask(taskData);
+      setTaskData('');
+      toggleModal();
       console.log('Task created');
     } catch (error) {
       console.error('Error creating task:', error);
@@ -39,6 +40,11 @@ const Modal = ({ toggleModal }) => {
       </div>
     </div>
   );
+};
+
+// Define prop types for validation
+Modal.propTypes = {
+  toggleModal: PropTypes.func.isRequired,
 };
 
 export default Modal;
