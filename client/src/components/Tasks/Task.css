@@ -1,20 +1,35 @@
-.main1{
+.Tasks {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 500px;
+    position: relative;
+}
+
+.main1 {
+    width: 100%;
+    display: flex;
     gap: 10px;
 }
-input{
+
+.checkbox {
     width: 20px;
     height: 20px;
     border: 1px solid aqua;
+    cursor: pointer;
 }
 
-p{
-    flex: 3;
+p {
+    flex: 1; 
 }
-hr{
+
+
+.completed {
+    text-decoration: line-through; 
+    color: gray; 
+}
+
+hr {
     width: 100%;
     border: 1px solid aqua;
     margin: 10px 0;
