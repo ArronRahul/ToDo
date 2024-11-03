@@ -11,6 +11,7 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOrder, setSortOrder] = useState('ALL');
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -36,19 +37,23 @@ const App = () => {
     setSortOrder(order);
   };
 
-  // Apply search and reverse sorting if needed
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
+
+  // Apply search and sorting
   const filteredAndSortedTasks = tasks
     .filter((task) => task.taskname.toLowerCase().includes(searchTerm))
     .sort((a, b) => {
-      if (sortOrder === 'OLDEST') return -1; // Reverse for latest
-      if (sortOrder === 'LATEST') return 1;  // Keep original order for oldest
+      if (sortOrder === 'OLDEST') return new Date(a.date) - new Date(b.date);
+      if (sortOrder === 'LATEST') return new Date(b.date) - new Date(a.date);
       return 0;
     });
 
   return (
-    <main>
+    <main className={isDarkTheme ? 'dark' : 'light'}>
       {showModal && <Modal toggleModal={toggleModal} />}
-      <Header onSearch={handleSearch} onSortChange={handleSortChange} />
+      <Header onSearch={handleSearch} onSortChange={handleSortChange} toggleTheme={toggleTheme} />
       <div className='tasks'>
         {filteredAndSortedTasks.map((task) => (
           <Task key={task._id} task={task} />

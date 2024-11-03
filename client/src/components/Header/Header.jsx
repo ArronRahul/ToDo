@@ -1,7 +1,7 @@
 import './Header.css';
 import { moon } from '../../assets';
 
-const Header = ({ onSearch, onSortChange }) => {
+const Header = ({ onSearch, onSortChange, toggleTheme }) => {
   const handleSearchChange = (e) => {
     onSearch(e.target.value);
   };
@@ -11,11 +11,8 @@ const Header = ({ onSearch, onSortChange }) => {
   };
 
   return (
-    <main className='main'>
-      <header className="header">
-        <h1>TODO LIST!</h1>
-      </header>
-
+    <header className='header'>
+      <h1>TODO LIST!</h1>
       <div className="content">
         <input 
           className="search" 
@@ -28,11 +25,11 @@ const Header = ({ onSearch, onSortChange }) => {
           <option value="LATEST">LATEST</option>
           <option value="OLDEST">OLDEST</option>
         </select>
-        <button className="theme">
+        <button className="theme" onClick={toggleTheme}>
           <img src={moon} alt="Theme Icon" />
         </button>
       </div>
-    </main>
+    </header>
   );
 };
 
